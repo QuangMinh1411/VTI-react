@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Car = (props) => {
+export const Car = ({ model }) => {
   return (
     <div>
-      <p>Car model: {props.model}</p>
+      <p>Car model: {model}</p>
     </div>
   );
 };

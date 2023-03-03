@@ -1,12 +1,9 @@
 import React from "react";
 
-function Person({ name, age }) {
+export const Person = ({ id, name, clickElement }) => {
   return (
-    <div>
-      <p>FullName:{name}</p>
-      <p>Age:{age}</p>
-    </div>
+    <li onClick={clickElement}>
+      {id}:{name}
+    </li>
   );
-}
-
-export default Person;
+};

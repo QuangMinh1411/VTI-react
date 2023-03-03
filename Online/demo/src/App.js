@@ -1,5 +1,6 @@
 import "./App.css";
 import { Car } from "./Car";
+import { Person } from "./Person";
 function App() {
   const list = [
     {
@@ -15,27 +16,35 @@ function App() {
       name: "Mary",
     },
   ];
-  console.log(list.length);
-  const listElements = list.map((item) => (
-    <li key={item.id}>
-      {item.id}:{item.name}
-    </li>
+
+  // let str = [];
+
+  // list.forEach((item) => {
+  //   str.push(
+  //     <li key={item.id}>
+  //       {item.id}:{item.name}
+  //     </li>
+  //   );
+  // });
+  const handleClick = (name) => {
+    console.log("Testing " + name);
+  };
+  const listElement = list.map((item) => (
+    <Person
+      key={item.id}
+      id={item.id}
+      name={item.name}
+      clickElement={(e) => handleClick(item.name)}
+    ></Person>
   ));
 
   return (
     <>
       <h1>Danh sach lop hoc</h1>
-      <ul>{listElements}</ul>
-      {/* <ul>
-        {list.map((item) => {
-          return (
-            <li key={item.id}>
-              {item.id} - {item.name}
-            </li>
-          );
-        })}
-      </ul> */}
+      <ul>{listElement}</ul>
       <Car model="Toyota" />
+      <Car model="Honda" />
+      <Car model="BMW" />
     </>
   );
 }
